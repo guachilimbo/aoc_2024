@@ -37,11 +37,13 @@ def is_safe(report):
 
 #Q2
 def calculate_safe_reports2(reports):
+    # O(kN^2)
     res = 0
     for report in reports:
         if is_safe(report):
             res +=1 
         else:
+            # remove each element until you find a valid report
             for i in range(len(report)):
                 if is_safe(report[:i] + report[i + 1:]):
                     res += 1
